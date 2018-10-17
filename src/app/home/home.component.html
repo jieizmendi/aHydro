@@ -1,0 +1,9 @@
+<video autoplay muted loop id="myVideo">
+    <source src="assets/background.mov" type="video/mp4">
+  </video>
+<div class="container">
+    <h1>Welcome to <span class="brand">aHydro</span></h1>
+    <h3 *ngFor="let module of modules">
+        <a mat-button routerLink="{{ '/' + module.id }}">{{ module.name ? module.name : module.serial }}</a>
+    </h3>
+</div>

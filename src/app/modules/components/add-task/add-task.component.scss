@@ -1,0 +1,19 @@
+mat-card {
+    flex: 1;
+    background-color: transparent !important;
+}
+
+mat-card-content {
+    display: flex;
+    flex-direction: column;
+}
+
+mat-card-content>* {
+    width: 100%;
+}
+
+.mat-stroked-button {
+    border-radius: 17px;
+    width: 80% !important;
+    align-self: center;
+}

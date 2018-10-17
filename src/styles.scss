@@ -1,2 +1,15 @@
-/* You can add global styles to this file, and also import other style files */
-@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+body {
+    margin: 0;
+    //padding: 0;
+    //height: 100%;
+}
+
+.brand {
+    //color: #7714A1;
+    font-weight: bold;
+    font-family: 'Indie Flower', cursive;
+}
+
+a.brand:visited {
+    color: inherit !important;
+}

@@ -1,0 +1,19 @@
+<mat-toolbar class="header-toolbar">
+  <h1 class="example-app-name brand">Tasks</h1>
+  <span class="spacer"></span>
+  <button color="primary" routerLink="new" mat-icon-button>
+    <mat-icon>add</mat-icon>
+  </button>
+</mat-toolbar>
+
+<mat-list>
+  <mat-list-item *ngFor="let task of tasks$ | async" [class.transparent]="task.isOutdated || task.status == 'F'"
+    [class.incomplete]="task.isOutdated && task.status == 'P'" [class.complete]="task.status == 'F'">
+    <h4 mat-line>{{task.description}}</h4>
+    <p mat-line>{{task.date | date}}</p>
+    <button *ngIf="!task.isOutdated && task.status == 'P'" mat-icon-button class="header-button" color="primary"
+      (click)="finishTask(task)">
+      <mat-icon>check</mat-icon>
+    </button>
+  </mat-list-item>
+</mat-list>

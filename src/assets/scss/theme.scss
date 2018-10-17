@@ -1,0 +1,41 @@
+@import '~@angular/material/theming';
+@include mat-core();
+
+/*
+$aHydro-primary: mat-palette($mat-gray, 700, 400, 800);
+$aHydro-accent: mat-palette($mat-light-green, 600, 300, 800);
+*/
+
+
+/*
+$aHydro-primary: mat-palette($mat-green, 800, 100, 400);
+$aHydro-accent: mat-palette($mat-blue-gray, 400, A100, 900);
+*/
+
+
+.spacer {
+    flex-grow: 1;
+  }
+
+$aHydro-accent: mat-palette($mat-blue, 50);
+$aHydro-primary: mat-palette($mat-teal, 800);
+$aHydro-warn: mat-palette($mat-red);
+$aHydro-theme: mat-light-theme($aHydro-primary, $aHydro-accent, $aHydro-warn);
+$aHydro-typography: mat-typography-config( $font-family: 'Roboto Mono, monospace;', $headline: mat-typography-level(32px, 48px, 700), $body-1: mat-typography-level(16px, 24px, 500));
+body {
+    @include angular-material-theme($aHydro-theme);
+    @include angular-material-typography($aHydro-typography);
+}
+
+html, body{
+    height: 100vh;
+    width: 100%;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.color-green {
+    color: green;
+}

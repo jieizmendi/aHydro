@@ -1,0 +1,43 @@
+<div class="content">
+  <div style="display: flex;">
+  <h1>Configurations</h1>
+  <span class="spacer"></span>
+  <button mat-stroked-button (click)="save()" color="primary">Save</button>
+  </div>
+  <mat-form-field>
+    <input matInput placeholder="Module Name" [formControl]="nameControl">
+    <mat-error *ngIf="nameControl.hasError('required')">
+      Field is <strong>required</strong>.
+    </mat-error>
+    <mat-error *ngIf="nameControl.hasError('minlength') || nameControl.hasError('maxlength')">
+      Field must be between 3 and 15 characters.
+    </mat-error>
+  </mat-form-field>
+
+  <mat-label>Air Temperature (ºC)</mat-label>
+  <mat-slider thumbLabel tickInterval="0.5" step="0.5" min="10" max="40" [(ngModel)]="module.configs.air_temperature"></mat-slider>
+
+  <mat-label>Water Temperature (ºC)</mat-label>
+  <mat-slider thumbLabel tickInterval="0.5" step="0.5" min="10" max="40" [(ngModel)]="module.configs.water_temperature"></mat-slider>
+
+  <mat-label>Humidity</mat-label>
+  <mat-slider thumbLabel tickInterval="0.5" step="0.5" min="10" max="90" [(ngModel)]="module.configs.humidity"></mat-slider>
+
+  <mat-label>Acidity (pH)</mat-label>
+  <mat-slider thumbLabel tickInterval="0.5" step="0.5" min="0" max="14" [(ngModel)]="module.configs.ph"></mat-slider>
+
+  <mat-label>Electric Conductivity</mat-label>
+  <mat-slider thumbLabel tickInterval="0.5" step="0.5" min="10" max="40" [(ngModel)]="module.configs.ec"></mat-slider>
+
+  <mat-form-field>
+    <input matInput placeholder="Light (luxes per day)" [formControl]="luxControl">
+    <mat-error *ngIf="luxControl.hasError('required')">
+      Field is <strong>required</strong>.
+    </mat-error>
+    <mat-error *ngIf="luxControl.hasError('required')">
+      Field is <strong>required</strong>.
+    </mat-error>
+  </mat-form-field>
+
+  
+</div>
