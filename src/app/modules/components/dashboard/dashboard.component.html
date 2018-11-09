@@ -1,6 +1,6 @@
-<mat-grid-list *ngIf="module.serial" cols="6" rowHeight="1:1" gutterSize="10px">
+<mat-grid-list *ngIf="module.serial" cols="8" rowHeight="1:1" gutterSize="10px">
 
-  <mat-grid-tile colspan="2" rowspan="3">
+  <mat-grid-tile colspan="3" rowspan="4">
     <mat-card class="mat-elevation-z0">
       <mat-card-header>
         <mat-card-title class="text-center">Growth Time</mat-card-title>
@@ -11,7 +11,7 @@
     </mat-card>
   </mat-grid-tile>
 
-  <mat-grid-tile colspan="4" rowspan="2">
+  <mat-grid-tile colspan="5" rowspan="3">
     <mat-card class="mat-elevation-z0">
       <mat-card-header>
         <mat-card-title>For now...</mat-card-title>
@@ -24,22 +24,24 @@
     </mat-card>
   </mat-grid-tile>
 
-  <mat-grid-tile colspan="4">
-      <p matBadge="4" matBadgeOverlap="false" color="primary">Light</p>
-      <p matBadge="4" matBadgeOverlap="false" color="primary">Light</p>
+  <mat-grid-tile colspan="5">
     <mat-chip-list>
-      <p matBadge="4" matBadgeOverlap="false" color="primary">Light</p>
       <mat-chip [color]="module.status.pump ? 'primary' : 'accent'" selected>Pump</mat-chip>
+      <mat-chip [color]="module.status.bulb ? 'primary' : 'accent'" selected>Light</mat-chip>
     </mat-chip-list>
   </mat-grid-tile>
 
-  <mat-grid-tile colspan="3" rowspan="3">
+  <mat-grid-tile colspan="4" rowspan="4">
     <mat-card class="mat-elevation-z0 sensor-container">
       <mat-card-header>
-        <div mat-card-avatar>
-          <mat-icon svgIcon="temperature"></mat-icon>
+        <div [ngSwitch]="semaphore.air_temperature" mat-card-avatar>
+          <mat-icon *ngSwitchCase="'red'" [style.color]="'red'">error</mat-icon>
+          <mat-icon *ngSwitchCase="'yellow'" [style.color]="'yellow'">warning</mat-icon>
+          <mat-icon *ngSwitchCase="'green'" [style.color]="'green'">check</mat-icon>
         </div>
-        <mat-card-title>Air Temperature</mat-card-title>
+        <mat-card-title>
+            Air Temperature
+        </mat-card-title>
         <mat-card-subtitle>~{{ module.configs.air_temperature | number:'1.0-1' }}ºC</mat-card-subtitle>
       </mat-card-header>
       <mat-card-content>
@@ -48,12 +50,14 @@
     </mat-card>
   </mat-grid-tile>
 
-  <mat-grid-tile colspan="3" rowspan="3">
+  <mat-grid-tile colspan="4" rowspan="4">
     <mat-card class="mat-elevation-z0 sensor-container">
       <mat-card-header>
-        <div mat-card-avatar>
-          <mat-icon svgIcon="temperature" color="accent"></mat-icon>
-        </div>
+          <div [ngSwitch]="semaphore.water_temperature" mat-card-avatar>
+              <mat-icon *ngSwitchCase="'red'" [style.color]="'red'">error</mat-icon>
+              <mat-icon *ngSwitchCase="'yellow'" [style.color]="'yellow'">warning</mat-icon>
+              <mat-icon *ngSwitchCase="'green'" [style.color]="'green'">check</mat-icon>
+            </div>
         <mat-card-title>Water Temperature</mat-card-title>
         <mat-card-subtitle>~{{ module.configs.water_temperature | number:'1.0-1' }}ºC</mat-card-subtitle>
       </mat-card-header>
@@ -63,29 +67,37 @@
     </mat-card>
   </mat-grid-tile>
 
-  <mat-grid-tile colspan="3" rowspan="3">
+  <mat-grid-tile colspan="4" rowspan="4">
     <mat-card class="mat-elevation-z0 sensor-container">
       <mat-card-header>
-        <div mat-card-avatar>
-          <mat-icon svgIcon="water" [style.color]="'blue'"></mat-icon>
-        </div>
+          <div [ngSwitch]="semaphore.humidity" mat-card-avatar>
+              <mat-icon *ngSwitchCase="'red'" [style.color]="'red'">error</mat-icon>
+              <mat-icon *ngSwitchCase="'yellow'" [style.color]="'yellow'">warning</mat-icon>
+              <mat-icon *ngSwitchCase="'green'" [style.color]="'green'">check</mat-icon>
+            </div>
         <mat-card-title>Humidity</mat-card-title>
         <mat-card-subtitle>~{{ module.configs.humidity | number:'1.0-1' }}%</mat-card-subtitle>
       </mat-card-header>
       <mat-card-content>
-        <h1 class="text-center">{{ module.status.humidity | number:'1.0-1' }}ºC</h1>
+        <h1 class="text-center">{{ module.status.humidity | number:'1.0-1' }}%</h1>
       </mat-card-content>
     </mat-card>
   </mat-grid-tile>
 
-  <mat-grid-tile colspan="3" rowspan="3">
-    <mat-card class="mat-elevation-z0">
+  <mat-grid-tile colspan="4" rowspan="4">
+    <mat-card class="mat-elevation-z0 sensor-container">
       <mat-card-header>
-        <mat-card-title>pH {{ module.status.ph | number:'1.0-1' }}</mat-card-title>
+          <div [ngSwitch]="semaphore.ph" mat-card-avatar>
+              <mat-icon *ngSwitchCase="'red'" [style.color]="'red'">error</mat-icon>
+              <mat-icon *ngSwitchCase="'yellow'" [style.color]="'yellow'">warning</mat-icon>
+              <mat-icon *ngSwitchCase="'green'" [style.color]="'green'">check</mat-icon>
+            </div>
+        <mat-card-title>pH</mat-card-title>
         <mat-card-subtitle>~{{ module.configs.ph | number:'1.0-1' }}</mat-card-subtitle>
-        <mat-card-title>eC {{ module.status.ec | number:'1.0-1' }}</mat-card-title>
-        <mat-card-subtitle>~{{ module.configs.ec | number:'1.0-1' }}</mat-card-subtitle>
       </mat-card-header>
+      <mat-card-content>
+        <h1 class="text-center">{{ module.status.ph | number:'1.0-1' }}</h1>
+      </mat-card-content>
     </mat-card>
   </mat-grid-tile>
 </mat-grid-list>
