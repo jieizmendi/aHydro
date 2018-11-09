@@ -1,8 +1,8 @@
 <div class="content">
-  <div style="display: flex;">
-  <h1>Configurations</h1>
-  <span class="spacer"></span>
-  <button mat-stroked-button (click)="save()" color="primary">Save</button>
+  <div class="header">
+    <h1>Configurations</h1>
+    <span class="spacer"></span>
+    <button mat-stroked-button (click)="save()" color="primary">Save</button>
   </div>
   <mat-form-field>
     <input matInput placeholder="Module Name" [formControl]="nameControl">
@@ -38,6 +38,4 @@
       Field is <strong>required</strong>.
     </mat-error>
   </mat-form-field>
-
-  
 </div>
