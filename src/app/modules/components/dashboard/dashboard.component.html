@@ -40,7 +40,7 @@
           <mat-icon *ngSwitchCase="'green'" [style.color]="'green'">check</mat-icon>
         </div>
         <mat-card-title>
-            Air Temperature
+          Air Temperature
         </mat-card-title>
         <mat-card-subtitle>~{{ module.configs.air_temperature | number:'1.0-1' }}ºC</mat-card-subtitle>
       </mat-card-header>
@@ -53,11 +53,11 @@
   <mat-grid-tile colspan="4" rowspan="4">
     <mat-card class="mat-elevation-z0 sensor-container">
       <mat-card-header>
-          <div [ngSwitch]="semaphore.water_temperature" mat-card-avatar>
-              <mat-icon *ngSwitchCase="'red'" [style.color]="'red'">error</mat-icon>
-              <mat-icon *ngSwitchCase="'yellow'" [style.color]="'yellow'">warning</mat-icon>
-              <mat-icon *ngSwitchCase="'green'" [style.color]="'green'">check</mat-icon>
-            </div>
+        <div [ngSwitch]="semaphore.water_temperature" mat-card-avatar>
+          <mat-icon *ngSwitchCase="'red'" [style.color]="'red'">error</mat-icon>
+          <mat-icon *ngSwitchCase="'yellow'" [style.color]="'yellow'">warning</mat-icon>
+          <mat-icon *ngSwitchCase="'green'" [style.color]="'green'">check</mat-icon>
+        </div>
         <mat-card-title>Water Temperature</mat-card-title>
         <mat-card-subtitle>~{{ module.configs.water_temperature | number:'1.0-1' }}ºC</mat-card-subtitle>
       </mat-card-header>
@@ -70,11 +70,11 @@
   <mat-grid-tile colspan="4" rowspan="4">
     <mat-card class="mat-elevation-z0 sensor-container">
       <mat-card-header>
-          <div [ngSwitch]="semaphore.humidity" mat-card-avatar>
-              <mat-icon *ngSwitchCase="'red'" [style.color]="'red'">error</mat-icon>
-              <mat-icon *ngSwitchCase="'yellow'" [style.color]="'yellow'">warning</mat-icon>
-              <mat-icon *ngSwitchCase="'green'" [style.color]="'green'">check</mat-icon>
-            </div>
+        <div [ngSwitch]="semaphore.humidity" mat-card-avatar>
+          <mat-icon *ngSwitchCase="'red'" [style.color]="'red'">error</mat-icon>
+          <mat-icon *ngSwitchCase="'yellow'" [style.color]="'yellow'">warning</mat-icon>
+          <mat-icon *ngSwitchCase="'green'" [style.color]="'green'">check</mat-icon>
+        </div>
         <mat-card-title>Humidity</mat-card-title>
         <mat-card-subtitle>~{{ module.configs.humidity | number:'1.0-1' }}%</mat-card-subtitle>
       </mat-card-header>
@@ -87,11 +87,11 @@
   <mat-grid-tile colspan="4" rowspan="4">
     <mat-card class="mat-elevation-z0 sensor-container">
       <mat-card-header>
-          <div [ngSwitch]="semaphore.ph" mat-card-avatar>
-              <mat-icon *ngSwitchCase="'red'" [style.color]="'red'">error</mat-icon>
-              <mat-icon *ngSwitchCase="'yellow'" [style.color]="'yellow'">warning</mat-icon>
-              <mat-icon *ngSwitchCase="'green'" [style.color]="'green'">check</mat-icon>
-            </div>
+        <div [ngSwitch]="semaphore.ph" mat-card-avatar>
+          <mat-icon *ngSwitchCase="'red'" [style.color]="'red'">error</mat-icon>
+          <mat-icon *ngSwitchCase="'yellow'" [style.color]="'yellow'">warning</mat-icon>
+          <mat-icon *ngSwitchCase="'green'" [style.color]="'green'">check</mat-icon>
+        </div>
         <mat-card-title>pH</mat-card-title>
         <mat-card-subtitle>~{{ module.configs.ph | number:'1.0-1' }}</mat-card-subtitle>
       </mat-card-header>
