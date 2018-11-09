@@ -1,30 +1,33 @@
-<mat-card>
-    <mat-card-header>
-        <mat-card-title>New Task</mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-        <mat-form-field>
-            <input matInput placeholder="Description" [formControl]="descriptionControl">
-            <mat-error *ngIf="descriptionControl.hasError('required')">
-                Task description is <strong>required</strong>.
-            </mat-error>
-            <mat-error *ngIf="descriptionControl.hasError('minlength') || descriptionControl.hasError('maxlength')">
-                Task description must be between 3 and 25 characters.
-            </mat-error>
-        </mat-form-field>
-        <br>
-        <mat-form-field>
-            <input matInput [formControl]="dateControl" [min]="minDate" [matDatepicker]="picker" placeholder="Choose a date">
-            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-            <mat-datepicker #picker></mat-datepicker>
-            <mat-error *ngIf="dateControl.hasError('required')">
-                Task date is <strong>required</strong>.
-            </mat-error>
-            <mat-error *ngIf="dateControl.hasError('matDatepickerMin')">
-                Task must be after today.
-            </mat-error>
-        </mat-form-field>
-        <br><br>
-        <button mat-stroked-button (click)="save()" color="primary">Save</button>
-    </mat-card-content>
-</mat-card>
+<mat-toolbar>
+  <h1>Tasks</h1>
+  <span class="spacer"></span>
+  <button color="primary" routerLink="new" mat-icon-button>
+    <mat-icon>add</mat-icon>
+  </button>
+</mat-toolbar>
+
+<div class="content">
+  <mat-form-field>
+    <input matInput placeholder="Description" [formControl]="descriptionControl">
+    <mat-error *ngIf="descriptionControl.hasError('required')">
+      Task description is <strong>required</strong>.
+    </mat-error>
+    <mat-error *ngIf="descriptionControl.hasError('minlength') || descriptionControl.hasError('maxlength')">
+      Task description must be between 3 and 25 characters.
+    </mat-error>
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <input matInput [formControl]="dateControl" [min]="minDate" [matDatepicker]="picker" placeholder="Choose a date">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+    <mat-error *ngIf="dateControl.hasError('required')">
+      Task date is <strong>required</strong>.
+    </mat-error>
+    <mat-error *ngIf="dateControl.hasError('matDatepickerMin')">
+      Task must be after today.
+    </mat-error>
+  </mat-form-field>
+  <br><br>
+  <button mat-stroked-button (click)="save()" color="primary">Save</button>
+</div>
