@@ -23,20 +23,19 @@ export class AddTaskComponent implements OnInit {
     private moduleService: ModuleService,
     private taskService: TaskService,
     private router: Router
-  ) {
-  }
+  ) {}
 
   ngOnInit() {
     this.subscription = this.moduleService
       .getCuerrent()
       .subscribe(_module => (this.module = _module));
 
-      this.descriptionControl = new FormControl("", [
-        Validators.required,
-        Validators.minLength(3),
-        Validators.maxLength(25)
-      ]);
-      this.dateControl = new FormControl("", [Validators.required]);
+    this.descriptionControl = new FormControl("", [
+      Validators.required,
+      Validators.minLength(3),
+      Validators.maxLength(25)
+    ]);
+    this.dateControl = new FormControl("", [Validators.required]);
   }
 
   ngOnDestroy() {
@@ -47,7 +46,6 @@ export class AddTaskComponent implements OnInit {
 
   save() {
     if (this.descriptionControl.invalid || this.dateControl.invalid) return;
-    console.log(this.dateControl.value)
     this.taskService
       .create(
         new Task(

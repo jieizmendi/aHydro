@@ -1,0 +1,743 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>a-hydro documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">a-hydro documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>ConfigurationComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/modules/components/configuration/configuration.component.ts</code>
+</p>
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+                <code><a href="https://angular.io/api/core/OnDestroy" target="_blank" >OnDestroy</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-configuration</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./configuration.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./configuration.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#luxControl">luxControl</a>
+                            </li>
+                            <li>
+                                <a href="#module">module</a>
+                            </li>
+                            <li>
+                                <a href="#nameControl">nameControl</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#subscription">subscription</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#ngOnDestroy">ngOnDestroy</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit">ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#save">save</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(moduleService: <a href="../injectables/ModuleService.html">ModuleService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/modules/components/configuration/configuration.component.ts:17</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>moduleService</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="../injectables/ModuleService.html" target="_self" >ModuleService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section>
+    
+        <h3 id="methods">
+            Methods
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="ngOnDestroy"></a>
+                        <span class="name">
+                            <b>
+                            ngOnDestroy
+                            </b>
+                            <a href="#ngOnDestroy"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>ngOnDestroy()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/app/modules/components/configuration/configuration.component.ts:38</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="ngOnInit"></a>
+                        <span class="name">
+                            <b>
+                            ngOnInit
+                            </b>
+                            <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>ngOnInit()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/app/modules/components/configuration/configuration.component.ts:21</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="save"></a>
+                        <span class="name">
+                            <b>
+                            save
+                            </b>
+                            <a href="#save"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>save()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">src/app/modules/components/configuration/configuration.component.ts:44</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="luxControl"></a>
+                        <span class="name">
+                            <b>
+                            luxControl
+                            </b>
+                            <a href="#luxControl"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>luxControl:     <code><a href="https://angular.io/api/forms/FormControl" target="_blank" >FormControl</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://angular.io/api/forms/FormControl" target="_blank" >FormControl</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/modules/components/configuration/configuration.component.ts:17</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="module"></a>
+                        <span class="name">
+                            <b>
+                            module
+                            </b>
+                            <a href="#module"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>module:     <code><a href="../classes/Module.html" target="_self" >Module</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="../classes/Module.html" target="_self" >Module</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/modules/components/configuration/configuration.component.ts:13</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="nameControl"></a>
+                        <span class="name">
+                            <b>
+                            nameControl
+                            </b>
+                            <a href="#nameControl"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>nameControl:     <code><a href="https://angular.io/api/forms/FormControl" target="_blank" >FormControl</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://angular.io/api/forms/FormControl" target="_blank" >FormControl</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/modules/components/configuration/configuration.component.ts:16</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="subscription"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            subscription
+                            </b>
+                            <a href="#subscription"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>subscription:     <code>Subscription</code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>Subscription</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>null</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/modules/components/configuration/configuration.component.ts:14</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit, OnDestroy } from &quot;@angular/core&quot;;
+import { FormControl, Validators } from &quot;@angular/forms&quot;;
+import { ModuleService } from &quot;../../../core/services/module.service&quot;;
+import { Module } from &quot;../../../core/models/module&quot;;
+import { Subscription } from &quot;rxjs&quot;;
+
+@Component({
+  selector: &quot;app-configuration&quot;,
+  templateUrl: &quot;./configuration.component.html&quot;,
+  styleUrls: [&quot;./configuration.component.scss&quot;]
+})
+export class ConfigurationComponent implements OnInit, OnDestroy {
+  module: Module;
+  private subscription: Subscription &#x3D; null;
+
+  nameControl: FormControl;
+  luxControl: FormControl;
+
+  constructor(private moduleService: ModuleService) {}
+
+  ngOnInit() {
+    this.subscription &#x3D; this.moduleService
+      .getCuerrent()
+      .subscribe(module &#x3D;&gt; (this.module &#x3D; module));
+    this.nameControl &#x3D; new FormControl(this.module.name, [
+      Validators.required,
+      Validators.minLength(3),
+      Validators.maxLength(15)
+    ]);
+    this.luxControl &#x3D; new FormControl(this.module.configs.light, [
+      Validators.required,
+      Validators.pattern(&quot;[0-9]*&quot;),
+      Validators.min(10000),
+      Validators.max(100000)
+    ]);
+  }
+
+  ngOnDestroy() {
+    if (this.subscription !&#x3D;&#x3D; null) {
+      this.subscription.unsubscribe();
+    }
+  }
+
+  save() {
+    if (this.nameControl.invalid || this.luxControl.invalid) return;
+    this.module.name &#x3D; this.nameControl.value;
+    this.module.configs.light &#x3D; this.luxControl.value;
+    this.moduleService.update(this.module).subscribe();
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;content&quot;&gt;
+  &lt;div class&#x3D;&quot;header&quot;&gt;
+    &lt;h1&gt;Configurations&lt;/h1&gt;
+    &lt;span class&#x3D;&quot;spacer&quot;&gt;&lt;/span&gt;
+    &lt;button mat-stroked-button (click)&#x3D;&quot;save()&quot; color&#x3D;&quot;primary&quot;&gt;Save&lt;/button&gt;
+  &lt;/div&gt;
+  &lt;mat-form-field&gt;
+    &lt;input matInput placeholder&#x3D;&quot;Module Name&quot; [formControl]&#x3D;&quot;nameControl&quot;&gt;
+    &lt;mat-error *ngIf&#x3D;&quot;nameControl.hasError(&#x27;required&#x27;)&quot;&gt;
+      Field is &lt;strong&gt;required&lt;/strong&gt;.
+    &lt;/mat-error&gt;
+    &lt;mat-error *ngIf&#x3D;&quot;nameControl.hasError(&#x27;minlength&#x27;) || nameControl.hasError(&#x27;maxlength&#x27;)&quot;&gt;
+      Field must be between 3 and 15 characters.
+    &lt;/mat-error&gt;
+  &lt;/mat-form-field&gt;
+
+  &lt;mat-label&gt;Air Temperature (ºC)&lt;/mat-label&gt;
+  &lt;mat-slider thumbLabel tickInterval&#x3D;&quot;0.5&quot; step&#x3D;&quot;0.5&quot; min&#x3D;&quot;10&quot; max&#x3D;&quot;40&quot; [(ngModel)]&#x3D;&quot;module.configs.air_temperature&quot;&gt;&lt;/mat-slider&gt;
+
+  &lt;mat-label&gt;Water Temperature (ºC)&lt;/mat-label&gt;
+  &lt;mat-slider thumbLabel tickInterval&#x3D;&quot;0.5&quot; step&#x3D;&quot;0.5&quot; min&#x3D;&quot;10&quot; max&#x3D;&quot;40&quot; [(ngModel)]&#x3D;&quot;module.configs.water_temperature&quot;&gt;&lt;/mat-slider&gt;
+
+  &lt;mat-label&gt;Humidity&lt;/mat-label&gt;
+  &lt;mat-slider thumbLabel tickInterval&#x3D;&quot;0.5&quot; step&#x3D;&quot;0.5&quot; min&#x3D;&quot;10&quot; max&#x3D;&quot;90&quot; [(ngModel)]&#x3D;&quot;module.configs.humidity&quot;&gt;&lt;/mat-slider&gt;
+
+  &lt;mat-label&gt;Acidity (pH)&lt;/mat-label&gt;
+  &lt;mat-slider thumbLabel tickInterval&#x3D;&quot;0.5&quot; step&#x3D;&quot;0.5&quot; min&#x3D;&quot;0&quot; max&#x3D;&quot;14&quot; [(ngModel)]&#x3D;&quot;module.configs.ph&quot;&gt;&lt;/mat-slider&gt;
+
+  &lt;mat-label&gt;Electric Conductivity&lt;/mat-label&gt;
+  &lt;mat-slider thumbLabel tickInterval&#x3D;&quot;0.5&quot; step&#x3D;&quot;0.5&quot; min&#x3D;&quot;10&quot; max&#x3D;&quot;40&quot; [(ngModel)]&#x3D;&quot;module.configs.ec&quot;&gt;&lt;/mat-slider&gt;
+
+  &lt;mat-form-field&gt;
+    &lt;input matInput placeholder&#x3D;&quot;Light (luxes per day)&quot; [formControl]&#x3D;&quot;luxControl&quot;&gt;
+    &lt;mat-error *ngIf&#x3D;&quot;luxControl.hasError(&#x27;required&#x27;)&quot;&gt;
+      Field is &lt;strong&gt;required&lt;/strong&gt;.
+    &lt;/mat-error&gt;
+    &lt;mat-error *ngIf&#x3D;&quot;luxControl.hasError(&#x27;required&#x27;)&quot;&gt;
+      Field is &lt;strong&gt;required&lt;/strong&gt;.
+    &lt;/mat-error&gt;
+  &lt;/mat-form-field&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./configuration.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  width: 95%;
+  margin: auto;
+
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .mat-stroked-button {
+      border-radius: 17px;
+    }
+  }
+
+  .mat-form-field {
+    .mat-form-field-wrapper {
+      padding-bottom: 0;
+
+      .mat-form-field-underline {
+        position: initial !important;
+        display: block;
+        margin-top: -1px;
+      }
+
+      .mat-form-field-subscript-wrapper,
+      .mat-form-field-ripple {
+        position: initial !important;
+        display: table;
+      }
+
+      .mat-form-field-subscript-wrapper {
+        min-height: calc(1em + 1px);
+      }
+    }
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="content">  <div class="header">    <h1>Configurations</h1>    <span class="spacer"></span>    <button mat-stroked-button (click)="save()" color="primary">Save</button>  </div>  <mat-form-field>    <input matInput placeholder="Module Name" [formControl]="nameControl">    <mat-error *ngIf="nameControl.hasError(\'required\')">      Field is <strong>required</strong>.    </mat-error>    <mat-error *ngIf="nameControl.hasError(\'minlength\') || nameControl.hasError(\'maxlength\')">      Field must be between 3 and 15 characters.    </mat-error>  </mat-form-field>  <mat-label>Air Temperature (ºC)</mat-label>  <mat-slider thumbLabel tickInterval="0.5" step="0.5" min="10" max="40" [(ngModel)]="module.configs.air_temperature"></mat-slider>  <mat-label>Water Temperature (ºC)</mat-label>  <mat-slider thumbLabel tickInterval="0.5" step="0.5" min="10" max="40" [(ngModel)]="module.configs.water_temperature"></mat-slider>  <mat-label>Humidity</mat-label>  <mat-slider thumbLabel tickInterval="0.5" step="0.5" min="10" max="90" [(ngModel)]="module.configs.humidity"></mat-slider>  <mat-label>Acidity (pH)</mat-label>  <mat-slider thumbLabel tickInterval="0.5" step="0.5" min="0" max="14" [(ngModel)]="module.configs.ph"></mat-slider>  <mat-label>Electric Conductivity</mat-label>  <mat-slider thumbLabel tickInterval="0.5" step="0.5" min="10" max="40" [(ngModel)]="module.configs.ec"></mat-slider>  <mat-form-field>    <input matInput placeholder="Light (luxes per day)" [formControl]="luxControl">    <mat-error *ngIf="luxControl.hasError(\'required\')">      Field is <strong>required</strong>.    </mat-error>    <mat-error *ngIf="luxControl.hasError(\'required\')">      Field is <strong>required</strong>.    </mat-error>  </mat-form-field></div></div>'
+    var COMPONENTS = [{'name': 'AddTaskComponent', 'selector': 'app-add-task'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'ConfigurationComponent', 'selector': 'app-configuration'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'HistoricalsComponent', 'selector': 'app-historicals'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'ModulesComponent', 'selector': 'app-modules'},{'name': 'TasksComponent', 'selector': 'app-tasks'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'ConfigurationComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'ConfigurationComponent.html';
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
