@@ -53,8 +53,8 @@ export class AddTaskComponent implements OnInit {
           this.descriptionControl.value,
           this.dateControl.value
         )
-      )
-      .subscribe();
+      );
+//      .subscribe();
     return this.router.navigate([this.module.id + "/tasks"]);
   }
 }

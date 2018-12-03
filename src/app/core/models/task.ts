@@ -10,6 +10,7 @@ export class Task implements Deserializable {
   status: string;
   type: string;
   isOutdated: boolean;
+  module: Module;
 
   constructor(
     module: Module = null,
@@ -17,6 +18,7 @@ export class Task implements Deserializable {
     date: Date = null
   ) {
     if (module !== null && description !== null && date !== null) {
+      this.module = module;
       this.module_id = module.id;
       this.description = description;
       this.date = date;

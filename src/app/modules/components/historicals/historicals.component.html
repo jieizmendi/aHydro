@@ -1,12 +1,15 @@
-<ngx-charts-line-chart [scheme]="colorScheme" [results]="multi" [gradient]="gradient" [xAxis]="showXAxis" [yAxis]="showYAxis" [legend]="showLegend" [showXAxisLabel]="false" [showYAxisLabel]="false" [xAxisLabel]="xAxisLabel" [yAxisLabel]="yAxisLabel" [autoScale]="autoScale"
-    (select)="onSelect($event)">
-</ngx-charts-line-chart>
-<mat-card>
-    <mat-card-title>
-        Configuration
-    </mat-card-title>
-
-    <mat-card-content>
-
-    </mat-card-content>
-</mat-card>
+<div class="content">
+  <div class="header">
+    <h1>Water temperature</h1>
+  </div>
+  <div class="chart-container">
+  <ngx-charts-sparkline [results]="multi" [curve]="curve" [autoScale]="'true'">
+  </ngx-charts-sparkline>
+  </div>
+  <!--
+  <ngx-charts-line-chart [scheme]="colorScheme" [results]="multi" [gradient]="gradient" [xAxis]="showXAxis" [yAxis]="showYAxis"
+    [legend]="showLegend" [showXAxisLabel]="showXAxisLabel" [showYAxisLabel]="showYAxisLabel" [xAxisLabel]="xAxisLabel"
+    [yAxisLabel]="yAxisLabel" [autoScale]="autoScale" [timeline]="timeline" (select)="onSelect($event)" [showGridLines]="showGridLines">
+  </ngx-charts-line-chart>
+  -->
+</div>

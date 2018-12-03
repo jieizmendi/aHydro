@@ -9,7 +9,7 @@ import {
 import { Observable, BehaviorSubject } from "rxjs";
 
 import { Task } from "../models/task";
-import {Module} from '../models/module';
+import { Module } from "../models/module";
 import { map } from "rxjs/operators";
 const httpOptions = {
   headers: new HttpHeaders({
@@ -30,7 +30,16 @@ export class TaskService {
   loadForModule(_module: Module) {
     this._http
       .get<Task[]>(`${this.url}?module_id=${_module.id}`)
-      .pipe(map(res => res.map(item => new Task().deserialize(item)).filter(task => task.date >= _module.start_at).sort((a,b)=> a.date>b.date?0:1)))
+      .pipe(
+        map(res =>
+          res
+            .map(item => new Task().deserialize(item))
+            .filter(task => task.date >= _module.start_at)
+            .sort(function(a, b) {
+              return b.date.getTime() - a.date.getTime();
+            })
+        )
+      )
       .subscribe(res => this.tasks$.next(res));
     /*
     this.todoBackendService.getAllTodos()
@@ -56,11 +65,13 @@ export class TaskService {
     return this._http.get<Task>(`${this.url}/${id}`);
   }
 
-  update(data: Task): Observable<any> {
-    return this._http.put(this.url, data, httpOptions);
+  update(data: Task): any {
+    return this._http.put(this.url, data, httpOptions).subscribe();
   }
 
-  create(data: Task): Observable<any> {
-    return this._http.post(this.url, data, httpOptions);
+  create(data: Task): any {
+    return this._http.post(this.url, data, httpOptions).subscribe(() => {
+      this.loadForModule(data.module);
+    });
   }
 }

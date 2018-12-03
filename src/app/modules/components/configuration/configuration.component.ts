@@ -47,4 +47,9 @@ export class ConfigurationComponent implements OnInit, OnDestroy {
     this.module.configs.light = this.luxControl.value;
     this.moduleService.update(this.module).subscribe();
   }
+
+  reset() {
+    this.module.start_at = new Date();
+    this.moduleService.update(this.module).subscribe();
+  }
 }

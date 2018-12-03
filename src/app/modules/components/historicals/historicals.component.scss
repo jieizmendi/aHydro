@@ -7,3 +7,20 @@ ngx-charts-line-chart {
     width: 100% !important;
     height: auto !important;
 }
+
+.content {
+    width: 100%;
+    margin: auto;
+    display: grid;
+    
+    .header {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    .chart-container {
+        width: 95%;
+        height: 150px;
+        margin: auto;
+    }
+}

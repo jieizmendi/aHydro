@@ -10,6 +10,7 @@ import { TasksComponent } from './components/tasks/tasks.component';
 import { AddTaskComponent } from './components/add-task/add-task.component';
 import { HistoricalsComponent } from './components/historicals/historicals.component';
 import {NgxChartsModule} from '@swimlane/ngx-charts';
+import {SparklineComponent} from './components/historicals/sparkline.component';
 
 @NgModule({
   imports: [
@@ -26,7 +27,8 @@ import {NgxChartsModule} from '@swimlane/ngx-charts';
     ModulesComponent,
     TasksComponent,
     AddTaskComponent,
-    HistoricalsComponent
+    HistoricalsComponent,
+    SparklineComponent
   ]
 })
 export class ModulesModule { }

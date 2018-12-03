@@ -9,7 +9,7 @@ class ConfigsSchema {
   ec: number;
 }
 
-class StatusSchema {
+export class StatusSchema {
   alert?: string;
   air_temperature: number;
   water_temperature: number;

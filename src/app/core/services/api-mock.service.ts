@@ -87,6 +87,14 @@ export class ApiMockService implements InMemoryDbService {
       {id: 4, module_id: 4, description: 'Task 1', date: '2018-01-01', status: 'F', type: 'A'}
     ];
 
+    const records = [
+      {id: 1, module_id: 1, description: 'Task 1', date: '2018-11-01', status: 'P', type: 'A'},
+      {id: 2, module_id: 1, description: 'Task 2', date: '2018-10-09', status: 'P', type: 'A'},
+      {id: 5, module_id: 1, description: 'Task 2.5', date: '2018-10-09', status: 'F', type: 'A'},
+      {id: 3, module_id: 1, description: 'Task 3', date: '2018-11-02', status: 'P', type: 'A'},
+      {id: 4, module_id: 4, description: 'Task 1', date: '2018-01-01', status: 'F', type: 'A'}
+    ];
+
     return { modules, tasks };
   }
 }

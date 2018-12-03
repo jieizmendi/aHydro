@@ -52,7 +52,6 @@ export class ModuleService {
   }
 
   update(m: Module): Observable<any> {
-    //this.currentModule = m;
     return this._http.put(this.url, m, httpOptions);
   }
 }

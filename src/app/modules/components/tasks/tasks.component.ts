@@ -29,6 +29,6 @@ export class TasksComponent implements OnInit {
 
   finishTask(task: Task) {
     task.status = "F";
-    this.taskService.update(task).subscribe();
+    this.taskService.update(task);//.subscribe();
   }
 }
