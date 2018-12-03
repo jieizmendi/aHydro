@@ -12,6 +12,7 @@ import { AppRoutingModule } from "./app-routing.module";
 import { ApiMockService } from "./core/services/api-mock.service";
 import { TaskService } from "./core/services/task.service";
 import { ModuleService } from "./core/services/module.service";
+import { RecordService } from "./core/services/record.service";
 
 //Components
 import { AppComponent } from "./app.component";
@@ -30,7 +31,7 @@ import { HomeComponent } from "./home/home.component";
       passThruUnknownUrl: true
     })
   ],
-  providers: [TaskService,ModuleService],
+  providers: [TaskService, ModuleService, RecordService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

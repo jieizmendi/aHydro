@@ -1,147 +1,123 @@
-import { Component, OnInit } from '@angular/core';
-import {single, multi} from './data';
-import * as shape from 'd3-shape';
+import { Component, OnInit } from "@angular/core";
+import * as shape from "d3-shape";
+import { Subscription } from "rxjs";
+import { RecordService } from "../../../core/services/record.service";
+import { ModuleService } from "../../../core/services/module.service";
+import { Record } from "../../../core/models/record";
+
+import { Angular5Csv } from "angular5-csv/Angular5-csv";
+
 @Component({
-  selector: 'app-historicals',
-  templateUrl: './historicals.component.html',
-  styleUrls: ['./historicals.component.scss']
+  selector: "app-historicals",
+  templateUrl: "./historicals.component.html",
+  styleUrls: ["./historicals.component.scss"]
 })
 export class HistoricalsComponent implements OnInit {
-  multi: any[];
- 
+  private subscription: Subscription = null;
 
-  view: any[] = [400, 400];
-
-  // options
-  showXAxis = false;
-  showYAxis = false;
-  gradient = false;
-  showLegend = false;
-  showXAxisLabel = false;
-  xAxisLabel = 'Number';
-  showYAxisLabel = false;
-  yAxisLabel = 'Color Value';
-  timeline = false;
-  showGridLines = false;
-  sparklineData: any[];
+  moduleName = "";
+  data: Record[];
   curve = shape.curveBasis;
 
-  colorScheme = {
-    domain: ['#5AA454', '#A10A28', '#C7B42C', '#AAAAAA']
-  };
+  water_temp_graph: any[];
+  air_temp_graph: any[];
+  humidity_graph: any[];
+  light_graph: any[];
+  ec_graph: any[];
+  ph_graph: any[];
 
-  // line, area
-  autoScale = true;
-  
-  constructor() {
-    this.multi = [
+  constructor(moduleService: ModuleService, recordService: RecordService) {
+    this.water_temp_graph = [];
+    this.air_temp_graph = [];
+    this.humidity_graph = [];
+    this.light_graph = [];
+    this.ec_graph = [];
+    this.ph_graph = [];
+
+    this.subscription = moduleService.getCuerrent().subscribe(module => {
+      this.moduleName = module.name;
+      recordService.getByModule(module.id).subscribe((data: Record[]) => {
+        data = data.filter(record => record.date > module.start_at);
+        this.data = data;
+        this.water_temp_graph = this.toGraph(data, "water_temperature");
+        this.air_temp_graph = this.toGraph(data, "air_temperature");
+        this.humidity_graph = this.toGraph(data, "humidity");
+        this.ec_graph = this.toGraph(data, "ec");
+        this.ph_graph = this.toGraph(data, "ph");
+        this.light_graph = this.toGraphLight(data);
+      });
+    });
+  }
+
+  toGraphLight(data: Record[]) {
+    let _data = data
+      .slice(0)
+      .sort((a, b) => a.date.getTime() - b.date.getTime())
+      .reduce((obj, item) => {
+        if (!obj[item.getDateToGroup()]) {
+          obj[item.getDateToGroup()] = {
+            value: item.getValue("light"),
+            name: item.getDateToGroup()
+          };
+        } else {
+          obj[item.getDateToGroup()].value += item.getValue("light");
+        }
+        return obj;
+      }, []);
+    let __data = [];
+    Object.keys(_data).forEach(key => {
+      if (key != Object.keys(_data).shift() && key != Object.keys(_data).pop())
+        __data.push(_data[key]);
+    });
+    return [
       {
-        "name": "Myanmar",
-        "series": [
-          {
-            "value": 23,
-            "name": "2016-09-19T00:34:09.842Z",
-          },
-          {
-            "value": 23,
-            "name": "2016-09-12T18:43:13.670Z",
-          },
-          {
-            "value": 22,
-            "name": "2016-09-21T01:50:55.370Z",
-          },
-          {
-            "value": 24,
-            "name": "2016-09-19T23:40:07.007Z",
-          },
-          {
-            "value": 23.5,
-            "name": "2016-09-19T12:01:13.072Z",
-          }
-        ]
-      },
-      {
-        "name": "Myanmar",
-        "series": [
-          {
-            "value": 22,
-            "name": "2016-09-19T00:34:09.842Z",
-          },
-          {
-            "value": 22,
-            "name": "2016-09-19T12:01:13.072Z",
-          }
-        ]
-      },
-      {
-        "name": "Myanmar",
-        "series": [
-          {
-            "value": 24,
-            "name": "2016-09-19T00:34:09.842Z",
-          },
-          {
-            "value": 24,
-            "name": "2016-09-19T12:01:13.072Z",
-          }
-        ]
+        name: "light",
+        series: __data
       }
     ];
-    this.sparklineData = generateData(1, false, 30);
-    console.log(this.sparklineData);
   }
 
-   
-  onSelect(event) {
-    console.log(event);
-  }
-
-  ngOnInit() {
-  }
-
-}
-
-let countries = [{name:'aa'},{name:'bb'}];
-
-export function generateData(seriesLength: number, includeMinMaxRange: boolean, dataPoints: number = 5): any[] {
-  const results = [];
-
-  const domain: Date[] = []; // array of time stamps in milliseconds
-
-  for (let j = 0; j < dataPoints; j++) {
-    // random dates between Sep 12, 2016 and Sep 24, 2016
-    domain.push(new Date(Math.floor(1473700105009 + Math.random() * 1000000000)));
-  }
-
-  for (let i = 0; i < seriesLength; i++) {
-    const country = countries[Math.floor(Math.random() * countries.length)];
-    const series = {
-      name: country.name,
-      series: []
-    };
-
-    for (let j = 0; j < domain.length; j++) {
-      const value = Math.floor(2000 + Math.random() * 5000);
-      // let timestamp = Math.floor(1473700105009 + Math.random() * 1000000000);
-      const timestamp = domain[j];
-      if (includeMinMaxRange) {
-        const errorMargin = 0.02 + Math.random() * 0.08;
-
-        series.series.push({
-          value,
-          name: timestamp,
-          min: Math.floor(value * (1 - errorMargin)),
-          max: Math.ceil(value * (1 + errorMargin))
-        });
-      } else {
-        series.series.push({
-          value,
-          name: timestamp
-        });
+  toGraph(data: Record[], key: string) {
+    return [
+      {
+        name: key,
+        series: data.map(record => {
+          return {
+            value: record.getValue(key),
+            name: record.getPrintableDate()
+          };
+        })
       }
-    }
-
-    results.push(series);
+    ];
   }
-  return results;
+
+  ngOnInit() {}
+
+  ngOnDestroy() {
+    if (this.subscription !== null) {
+      this.subscription.unsubscribe();
+    }
+  }
+
+  downloadData() {
+    new Angular5Csv(
+      this.data.map(record => {
+        const date =
+          record.date.getDate() +
+          "-" +
+          (record.date.getMonth() + 1) +
+          "-" +
+          record.date.getFullYear() +
+          " " +
+          (record.date.getHours() < 10 ? '0' + record.date.getHours() : record.date.getHours()) +
+          ":" +
+          (record.date.getMinutes() < 10 ? '0' + record.date.getMinutes() : record.date.getMinutes());
+        return {
+          at: date,
+          ...record.status
+        };
+      }),
+      this.moduleName
+    );
+  }
 }

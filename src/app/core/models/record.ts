@@ -12,4 +12,19 @@ export class Record implements Deserializable {
     this.date = new Date(this.date);
     return this;
   }
+
+  getValue(key: string){
+    return this.status[key];
+  }
+  
+  getPrintableDate(){
+    return this.date.toISOString();
+  }
+  
+  getDateToGroup(){
+    return this.date.toISOString().substring(0, 10);
+  }
+
 }
+
+

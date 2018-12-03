@@ -3,13 +3,49 @@
     <h1>Water temperature</h1>
   </div>
   <div class="chart-container">
-  <ngx-charts-sparkline [results]="multi" [curve]="curve" [autoScale]="'true'">
+  <ngx-charts-sparkline [results]="water_temp_graph" [curve]="curve" [autoScale]="'true'">
   </ngx-charts-sparkline>
   </div>
-  <!--
-  <ngx-charts-line-chart [scheme]="colorScheme" [results]="multi" [gradient]="gradient" [xAxis]="showXAxis" [yAxis]="showYAxis"
-    [legend]="showLegend" [showXAxisLabel]="showXAxisLabel" [showYAxisLabel]="showYAxisLabel" [xAxisLabel]="xAxisLabel"
-    [yAxisLabel]="yAxisLabel" [autoScale]="autoScale" [timeline]="timeline" (select)="onSelect($event)" [showGridLines]="showGridLines">
-  </ngx-charts-line-chart>
-  -->
+
+  <div class="header">
+    <h1>Air temperature</h1>
+  </div>
+  <div class="chart-container">
+  <ngx-charts-sparkline [results]="air_temp_graph" [curve]="curve" [autoScale]="'true'">
+  </ngx-charts-sparkline>
+  </div>
+
+  <div class="header">
+    <h1>Humidity</h1>
+  </div>
+  <div class="chart-container">
+  <ngx-charts-sparkline [results]="humidity_graph" [curve]="curve" [autoScale]="'true'">
+  </ngx-charts-sparkline>
+  </div>
+
+  <div class="header">
+    <h1>e.c.</h1>
+  </div>
+  <div class="chart-container">
+  <ngx-charts-sparkline [results]="ec_graph" [curve]="curve" [autoScale]="'true'">
+  </ngx-charts-sparkline>
+  </div>
+
+  <div class="header">
+    <h1>pH</h1>
+  </div>
+  <div class="chart-container">
+  <ngx-charts-sparkline [results]="ph_graph" [curve]="curve" [autoScale]="'true'">
+  </ngx-charts-sparkline>
+  </div>
+
+  <div class="header">
+    <h1>Light</h1>
+  </div>
+  <div class="chart-container">
+  <ngx-charts-sparkline [results]="light_graph" [curve]="curve" [autoScale]="'true'">
+  </ngx-charts-sparkline>
+  </div>
+
+  <button mat-stroked-button (click)="downloadData()" color="primary">Download records</button>
 </div>
