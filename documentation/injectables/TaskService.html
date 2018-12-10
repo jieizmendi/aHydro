@@ -198,7 +198,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="63" class="link-to-prism">src/app/core/services/task.service.ts:63</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="72" class="link-to-prism">src/app/core/services/task.service.ts:72</a></div>
                             </td>
                         </tr>
 
@@ -235,7 +235,7 @@
                             <div>
                             </div>
                             <div class="io-description">
-                                <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
 
                             </div>
                                 <div class="io-description">
@@ -267,7 +267,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="55" class="link-to-prism">src/app/core/services/task.service.ts:55</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="64" class="link-to-prism">src/app/core/services/task.service.ts:64</a></div>
                             </td>
                         </tr>
 
@@ -336,7 +336,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">src/app/core/services/task.service.ts:49</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="58" class="link-to-prism">src/app/core/services/task.service.ts:58</a></div>
                             </td>
                         </tr>
 
@@ -443,7 +443,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="59" class="link-to-prism">src/app/core/services/task.service.ts:59</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="68" class="link-to-prism">src/app/core/services/task.service.ts:68</a></div>
                             </td>
                         </tr>
 
@@ -480,7 +480,7 @@
                             <div>
                             </div>
                             <div class="io-description">
-                                <b>Returns : </b>    <code>Observable&lt;any&gt;</code>
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
 
                             </div>
                                 <div class="io-description">
@@ -632,7 +632,7 @@ import {
 import { Observable, BehaviorSubject } from &quot;rxjs&quot;;
 
 import { Task } from &quot;../models/task&quot;;
-import {Module} from &#x27;../models/module&#x27;;
+import { Module } from &quot;../models/module&quot;;
 import { map } from &quot;rxjs/operators&quot;;
 const httpOptions &#x3D; {
   headers: new HttpHeaders({
@@ -653,7 +653,16 @@ export class TaskService {
   loadForModule(_module: Module) {
     this._http
       .get&lt;Task[]&gt;(&#x60;${this.url}?module_id&#x3D;${_module.id}&#x60;)
-      .pipe(map(res &#x3D;&gt; res.map(item &#x3D;&gt; new Task().deserialize(item)).filter(task &#x3D;&gt; task.date &gt;&#x3D; _module.start_at).sort((a,b)&#x3D;&gt; a.date&gt;b.date?0:1)))
+      .pipe(
+        map(res &#x3D;&gt;
+          res
+            .map(item &#x3D;&gt; new Task().deserialize(item))
+            .filter(task &#x3D;&gt; task.date &gt;&#x3D; _module.start_at)
+            .sort(function(a, b) {
+              return b.date.getTime() - a.date.getTime();
+            })
+        )
+      )
       .subscribe(res &#x3D;&gt; this.tasks$.next(res));
     /*
     this.todoBackendService.getAllTodos()
@@ -679,12 +688,14 @@ export class TaskService {
     return this._http.get&lt;Task&gt;(&#x60;${this.url}/${id}&#x60;);
   }
 
-  update(data: Task): Observable&lt;any&gt; {
-    return this._http.put(this.url, data, httpOptions);
+  update(data: Task): any {
+    return this._http.put(this.url, data, httpOptions).subscribe();
   }
 
-  create(data: Task): Observable&lt;any&gt; {
-    return this._http.post(this.url, data, httpOptions);
+  create(data: Task): any {
+    return this._http.post(this.url, data, httpOptions).subscribe(() &#x3D;&gt; {
+      this.loadForModule(data.module);
+    });
   }
 }
 </code></pre>

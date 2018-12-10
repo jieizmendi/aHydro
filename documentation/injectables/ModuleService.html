@@ -733,7 +733,6 @@ export class ModuleService {
   }
 
   update(m: Module): Observable&lt;any&gt; {
-    //this.currentModule &#x3D; m;
     return this._http.put(this.url, m, httpOptions);
   }
 }

@@ -162,6 +162,9 @@
                                 <a href="#ngOnInit">ngOnInit</a>
                             </li>
                             <li>
+                                <a href="#reset">reset</a>
+                            </li>
+                            <li>
                                 <a href="#save">save</a>
                             </li>
                         </ul>
@@ -295,6 +298,44 @@
                         <tr>
                             <td class="col-md-4">
                                     <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/app/modules/components/configuration/configuration.component.ts:21</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="reset"></a>
+                        <span class="name">
+                            <b>
+                            reset
+                            </b>
+                            <a href="#reset"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>reset()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">src/app/modules/components/configuration/configuration.component.ts:51</a></div>
                             </td>
                         </tr>
 
@@ -552,6 +593,11 @@ export class ConfigurationComponent implements OnInit, OnDestroy {
     this.module.configs.light &#x3D; this.luxControl.value;
     this.moduleService.update(this.module).subscribe();
   }
+
+  reset() {
+    this.module.start_at &#x3D; new Date();
+    this.moduleService.update(this.module).subscribe();
+  }
 }
 </code></pre>
     </div>
@@ -597,6 +643,8 @@ export class ConfigurationComponent implements OnInit, OnDestroy {
       Field is &lt;strong&gt;required&lt;/strong&gt;.
     &lt;/mat-error&gt;
   &lt;/mat-form-field&gt;
+
+  &lt;button mat-stroked-button (click)&#x3D;&quot;reset()&quot; color&#x3D;&quot;primary&quot;&gt;Reset Module&lt;/button&gt;
 &lt;/div&gt;
 </code></pre>
     </div>
@@ -672,8 +720,8 @@ export class ConfigurationComponent implements OnInit, OnDestroy {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div class="content">  <div class="header">    <h1>Configurations</h1>    <span class="spacer"></span>    <button mat-stroked-button (click)="save()" color="primary">Save</button>  </div>  <mat-form-field>    <input matInput placeholder="Module Name" [formControl]="nameControl">    <mat-error *ngIf="nameControl.hasError(\'required\')">      Field is <strong>required</strong>.    </mat-error>    <mat-error *ngIf="nameControl.hasError(\'minlength\') || nameControl.hasError(\'maxlength\')">      Field must be between 3 and 15 characters.    </mat-error>  </mat-form-field>  <mat-label>Air Temperature (ºC)</mat-label>  <mat-slider thumbLabel tickInterval="0.5" step="0.5" min="10" max="40" [(ngModel)]="module.configs.air_temperature"></mat-slider>  <mat-label>Water Temperature (ºC)</mat-label>  <mat-slider thumbLabel tickInterval="0.5" step="0.5" min="10" max="40" [(ngModel)]="module.configs.water_temperature"></mat-slider>  <mat-label>Humidity</mat-label>  <mat-slider thumbLabel tickInterval="0.5" step="0.5" min="10" max="90" [(ngModel)]="module.configs.humidity"></mat-slider>  <mat-label>Acidity (pH)</mat-label>  <mat-slider thumbLabel tickInterval="0.5" step="0.5" min="0" max="14" [(ngModel)]="module.configs.ph"></mat-slider>  <mat-label>Electric Conductivity</mat-label>  <mat-slider thumbLabel tickInterval="0.5" step="0.5" min="10" max="40" [(ngModel)]="module.configs.ec"></mat-slider>  <mat-form-field>    <input matInput placeholder="Light (luxes per day)" [formControl]="luxControl">    <mat-error *ngIf="luxControl.hasError(\'required\')">      Field is <strong>required</strong>.    </mat-error>    <mat-error *ngIf="luxControl.hasError(\'required\')">      Field is <strong>required</strong>.    </mat-error>  </mat-form-field></div></div>'
-    var COMPONENTS = [{'name': 'AddTaskComponent', 'selector': 'app-add-task'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'ConfigurationComponent', 'selector': 'app-configuration'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'HistoricalsComponent', 'selector': 'app-historicals'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'ModulesComponent', 'selector': 'app-modules'},{'name': 'TasksComponent', 'selector': 'app-tasks'}];
+        var COMPONENT_TEMPLATE = '<div><div class="content">  <div class="header">    <h1>Configurations</h1>    <span class="spacer"></span>    <button mat-stroked-button (click)="save()" color="primary">Save</button>  </div>  <mat-form-field>    <input matInput placeholder="Module Name" [formControl]="nameControl">    <mat-error *ngIf="nameControl.hasError(\'required\')">      Field is <strong>required</strong>.    </mat-error>    <mat-error *ngIf="nameControl.hasError(\'minlength\') || nameControl.hasError(\'maxlength\')">      Field must be between 3 and 15 characters.    </mat-error>  </mat-form-field>  <mat-label>Air Temperature (ºC)</mat-label>  <mat-slider thumbLabel tickInterval="0.5" step="0.5" min="10" max="40" [(ngModel)]="module.configs.air_temperature"></mat-slider>  <mat-label>Water Temperature (ºC)</mat-label>  <mat-slider thumbLabel tickInterval="0.5" step="0.5" min="10" max="40" [(ngModel)]="module.configs.water_temperature"></mat-slider>  <mat-label>Humidity</mat-label>  <mat-slider thumbLabel tickInterval="0.5" step="0.5" min="10" max="90" [(ngModel)]="module.configs.humidity"></mat-slider>  <mat-label>Acidity (pH)</mat-label>  <mat-slider thumbLabel tickInterval="0.5" step="0.5" min="0" max="14" [(ngModel)]="module.configs.ph"></mat-slider>  <mat-label>Electric Conductivity</mat-label>  <mat-slider thumbLabel tickInterval="0.5" step="0.5" min="10" max="40" [(ngModel)]="module.configs.ec"></mat-slider>  <mat-form-field>    <input matInput placeholder="Light (luxes per day)" [formControl]="luxControl">    <mat-error *ngIf="luxControl.hasError(\'required\')">      Field is <strong>required</strong>.    </mat-error>    <mat-error *ngIf="luxControl.hasError(\'required\')">      Field is <strong>required</strong>.    </mat-error>  </mat-form-field>  <button mat-stroked-button (click)="reset()" color="primary">Reset Module</button></div></div>'
+    var COMPONENTS = [{'name': 'AddTaskComponent', 'selector': 'app-add-task'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'ConfigurationComponent', 'selector': 'app-configuration'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'HistoricalsComponent', 'selector': 'app-historicals'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'ModulesComponent', 'selector': 'app-modules'},{'name': 'SparklineComponent', 'selector': 'ngx-charts-sparkline'},{'name': 'TasksComponent', 'selector': 'app-tasks'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'ConfigurationComponent'};
 </script>
